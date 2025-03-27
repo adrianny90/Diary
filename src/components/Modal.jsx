@@ -56,7 +56,7 @@ const Modal = ({ add, changeAdd }) => {
             </label>
             <input
               type="text"
-              className="flex-1 p-2 border border-gray-300 rounded bg-gray-200 text-sm sm:text-base"
+              className="flex-1 p-2  text-black border border-gray-300 rounded bg-gray-200 text-sm sm:text-base"
               placeholder="Enter title"
               required
               name="title"
@@ -71,7 +71,7 @@ const Modal = ({ add, changeAdd }) => {
             </label>
             <input
               type="date"
-              className="flex-1 p-2 border border-gray-300 rounded bg-gray-200 text-sm sm:text-base"
+              className="flex-1 p-2 text-black  border border-gray-300 rounded bg-gray-200 text-sm sm:text-base"
               required
               name="date"
               onChange={handleChange}
@@ -85,8 +85,8 @@ const Modal = ({ add, changeAdd }) => {
             </label>
             <input
               type="url"
-              className="flex-1 p-2 border border-gray-300 rounded bg-gray-200 text-sm sm:text-base"
-              placeholder="Enter image URL"
+              className="flex-1 p-2 text-black border border-gray-300 rounded bg-gray-200 text-sm sm:text-base"
+              placeholder="Enter image URL "
               name="imageUrl"
               onChange={handleChange}
               value={formData.imageUrl}
@@ -98,7 +98,7 @@ const Modal = ({ add, changeAdd }) => {
               Content
             </label>
             <textarea
-              className="flex-1 p-2 border border-gray-300 rounded bg-gray-200 h-24 sm:h-32 resize-none text-sm sm:text-base"
+              className="flex-1 p-2 text-black border border-gray-300 rounded bg-gray-200 h-24 sm:h-32 resize-none text-sm sm:text-base"
               placeholder="Enter content"
               required
               name="content"
