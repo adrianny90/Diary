@@ -19,7 +19,7 @@ const Modal = ({ add, changeAdd }) => {
   const handleSubmit = (e) => {
     e.preventDefault(); // prevents emptying fields
 
-    let checkWarning = storeDiary({ formData }); // call store function
+    let checkWarning = storeDiary(formData); // call store function
     if (checkWarning) {
       setWarning(checkWarning);
       return;
