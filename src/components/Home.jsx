@@ -1,10 +1,23 @@
-import React from "react";
 import image from "../assets/images.jpg";
 import Modal from "../components/Modal";
-import { useState } from "react";
+import DiaryEntries from "../components/DiaryEntries";
+import React, { useState, useEffect } from "react";
 
 export const Home = () => {
   const [addOpen, setAddOpen] = useState(false);
+  const [diaryEntries, setDiaryEntries] = useState([]);
+
+  // Function to fetch diary entries from localStorage
+  const fetchDiaryEntries = () => {
+    const storedEntries = JSON.parse(localStorage.getItem("diaryItems")) || [];
+    setDiaryEntries(storedEntries);
+  };
+
+  // Fetch entries when the component mounts
+  useEffect(() => {
+    fetchDiaryEntries();
+  }, [addOpen]); //whenever addOpen changes, fetchDiaryEntries will run
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-purple-400 to-purple-200 p-4 ">
       {/* Header */}
@@ -28,19 +41,8 @@ export const Home = () => {
             className="w-full h-80 object-cover rounded-lg"
           />
         </div>
-        <div className="mt-8 lg:w-3/4 text-center space-y-4 mx-auto">
-          <div className="bg-white p-4 rounded-lg shadow-lg flex items-center">
-            <img
-              src={image}
-              alt="Entry"
-              className="max-w-72 h-40 rounded-lg mr-10"
-            />
-            <div>
-              <p className="font-bold text-3xl ">fff</p>
-              <p className="font-semibold text-2xl mt-2">hhh</p>
-            </div>
-          </div>
-        </div>
+        {/* Diary Entries Component */}
+        <DiaryEntries diaryEntries={diaryEntries} />
       </main>
 
       {/* Footer */}
