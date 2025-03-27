@@ -10,7 +10,16 @@ export const Home = () => {
   // Function to fetch diary entries from localStorage
   const fetchDiaryEntries = () => {
     const storedEntries = JSON.parse(localStorage.getItem("diaryItems")) || [];
+    // Sort entries by date (assuming date is in "YYYY-MM-DD" format)
+    storedEntries.sort((a, b) => new Date(b.date) - new Date(a.date));
+
     setDiaryEntries(storedEntries);
+  };
+
+  const deleteCard = (date) => {
+    const updatedDiary = diaryEntries.filter((entry) => entry.date !== date);
+    localStorage.setItem("diaryItems", JSON.stringify(updatedDiary));
+    setDiaryEntries(updatedDiary);
   };
 
   // Fetch entries when the component mounts
@@ -42,7 +51,7 @@ export const Home = () => {
           />
         </div>
         {/* Diary Entries Component */}
-        <DiaryEntries diaryEntries={diaryEntries} />
+        <DiaryEntries diaryEntries={diaryEntries} deleteCard={deleteCard} />
       </main>
 
       {/* Footer */}
