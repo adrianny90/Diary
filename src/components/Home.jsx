@@ -31,14 +31,14 @@ export const Home = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-purple-400 to-purple-200">
       {/* Header */}
-      <header className="text-white py-4 text-3xl font-bold shadow-md flex justify-around items-center md:flex-row sm:flex-col">
+      <header className="text-white bg-purple-400 py-4 text-3xl font-bold shadow-md flex justify-around items-center sticky top-0 md:flex-row sm:flex-col">
         <span>My Personal Diary</span>
 
         <button
           className="bg-white text-gray-800 rounded-2xl shadow-md px-8 py-2 flex items-center gap-4 cursor-pointer hover:bg-purple-200 hover:shadow-lg transition duration-300 ease-in-out md:mt-0 sm:mt-4"
           onClick={() => setAddOpen((prev) => !prev)}
         >
-          <img src={pencilIcon} alt="Pencil Icon" className="w-25 h-25" />
+          <img src={pencilIcon} alt="Pencil Icon" className="w-15 h-15" />
           <span className="font-bold text-xxl"> Add New</span>
         </button>
         <Modal add={addOpen} changeAdd={setAddOpen} />
