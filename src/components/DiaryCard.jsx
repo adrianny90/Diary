@@ -1,7 +1,7 @@
 const DiaryCard = ({ entry, onClick }) => {
   return (
     <div
-      className="card bg-purple-100 p-4 rounded shadow-md cursor-pointer"
+      className="card bg-purple-100 p-4 rounded shadow-md cursor-pointer "
       onClick={() => onClick(entry)}
     >
       <img

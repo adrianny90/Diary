@@ -15,18 +15,18 @@ const DiaryEntries = ({ diaryEntries, deleteCard }) => {
 
   return (
     <>
-      <div className="mt-8 lg:w-3/4 text-left space-y-4 mx-auto">
+      <div className="mt-8 text-left space-y-4 mx-auto">
         {diaryEntries.length > 0 ? (
           diaryEntries.map((entry, index) => (
             <div
               key={index}
-              className="bg-white p-4 rounded-lg shadow-lg flex items-center cursor-pointer transition duration-300 ease-in-out hover:shadow-xl hover:bg-purple-300"
+              className="bg-white p-4 rounded-lg shadow-lg flex items-center cursor-pointer transition duration-300 ease-in-out hover:shadow-xl hover:bg-purple-200 lg:flex-row sm:flex-col ml-[10%] mr-[9%]"
               onClick={() => handleCardClick(entry)} /* Open modal on click*/
             >
               <img
                 src={entry.imageUrl}
                 alt="Entry"
-                className="max-w-72 h-40 rounded-lg mr-10"
+                className="max-w-72 h-40 rounded-lg md:mr-10 sm:mr-0"
               />
               <div className="flex justify-between w-full">
                 <div className="flex flex-col">
@@ -38,7 +38,7 @@ const DiaryEntries = ({ diaryEntries, deleteCard }) => {
                     e.stopPropagation(); /* Prevent modal from opening*/
                     deleteCard(entry.date);
                   }}
-                  className="bg-gray-100 rounded-lg p-2 mt-4 hover:bg-red-300 transition duration-300 ease-in-out "
+                  className="bg-gray-100 rounded-lg p-2 mt-4 hover:bg-red-300 transition duration-300 ease-in-out cursor-pointer"
                 >
                   <img
                     src={deleteIcon}
@@ -60,7 +60,7 @@ const DiaryEntries = ({ diaryEntries, deleteCard }) => {
           onClick={closeModal} /*Close modal when clicking on the purple area*/
         >
           <div
-            className="bg-white p-6 rounded shadow-lg max-w-md w-full relative"
+            className="bg-white p-6 rounded shadow-lg w-[70%] relative"
             onClick={
               (e) =>
                 e.stopPropagation() /*Prevent closing when clicking inside the modal*/
@@ -78,13 +78,14 @@ const DiaryEntries = ({ diaryEntries, deleteCard }) => {
               {selectedEntry.title}
             </h2>
             <p className="mt-4 text-justify">{selectedEntry.content}</p>
-
-            <button
-              className="bg-purple-500 text-white px-4 py-2 rounded mt-6 w-full hover:bg-purple-600 transition duration-300" /* Save Button at the Bottom */
-              onClick={closeModal}
-            >
-              Save
-            </button>
+            <div className="flex justify-around">
+              <button
+                className="bg-purple-500 text-white px-4 py-2 rounded mt-6 hover:bg-purple-600 transition duration-300" /* Save Button at the Bottom */
+                onClick={closeModal}
+              >
+                Save
+              </button>
+            </div>
           </div>
         </div>
       )}
